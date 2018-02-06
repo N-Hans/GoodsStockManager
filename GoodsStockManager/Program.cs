@@ -12,16 +12,20 @@ namespace GoodsStockManager
 {
     public class Program
     {
+        public static IConfigurationRoot configuration { get; set; }
         public static void Main(string[] args)
         {
             BuildWebHost(args).Run();
         }
 
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
+        public static IWebHost BuildWebHost(string[] args)
+        {
+            return WebHost.CreateDefaultBuilder(args)
                 .UseKestrel()
                 .UseWebRoot("../GoodsStockManager.App/goodsStockApp/wwwroot")
+                .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseStartup<Startup>()
                 .Build();
+        }
     }
 }

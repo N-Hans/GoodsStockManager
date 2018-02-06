@@ -8,17 +8,24 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GoodsStockManager.Controllers
 {
-    [Route("api/[controller]")]
+
     public class GoodsController : Controller
     {
+
+        private GoodsContext _dbContext;
+
+        public GoodsController(GoodsContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
         // GET api/values
         [HttpGet]
-        public IEnumerable<GoodsItem> Get()
+        [Route("api/goods")]
+        public IActionResult Get()
         {
-            using (var goodsContext = new GoodsContext())
-            {
-                return goodsContext.Set<GoodsItem>();
-            }
+            var goods = _dbContext.Goods.ToList();
+            return Ok(goods);
         }
     }
 }
