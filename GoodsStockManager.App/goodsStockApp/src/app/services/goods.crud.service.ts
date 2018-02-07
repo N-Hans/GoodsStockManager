@@ -1,17 +1,30 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { GoodsItem } from '../models/goodsItem.model';
+import { Good } from '../models/good.model';
+import { Observable } from 'rxjs/Observable';
+import { SelectOption } from '../models/select-option.model';
 
 @Injectable()
 export class GoodsCRUDService {
 
-  goods: GoodsItem[];
+  goods: Good[];
+  managementTypes: SelectOption[];
 
   constructor(private http: HttpClient) {
     this.getGoods();
+    this.getManagementTypes();
   }
 
   getGoods() {
-    this.http.get<GoodsItem[]>("/api/goods").subscribe(response => this.goods = response);
+    this.http.get<Good[]>("/api/goods").subscribe(response => this.goods = response);
   }
+
+  getGood(id: number): Observable<Good> {
+    return this.http.get<Good>("/api/goods/" + id);
+  }
+
+  getManagementTypes() {
+    return this.http.get<SelectOption[]>("/api/goods/management-types").subscribe(response => this.managementTypes = response);
+  }
+
 }

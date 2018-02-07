@@ -1,8 +1,16 @@
 @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
 
+// BREAKPOINTS
+$bp-xs: 480px;
+$bp-sm: 768px;
+$bp-md: 992px;
+$bp-lg: 1200px;
+
+html,
 body {
   margin: 0;
   padding: 0;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
 }
 
 
@@ -25,4 +33,29 @@ my-app:empty + .loader-container {
   justify-content: center;
   align-items: center;
   background-color: #f0e36d;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.center-hold {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  &.justif-evenly{
+    justify-content: space-evenly;
+  }
+}
+
+add-edit-good {
+  mat-card {
+    width: 50%;
+
+    @media (max-width: $bp-sm) {
+      width: 90%;
+    }
+  }
 }

@@ -34,6 +34,9 @@ namespace GoodsStockManager
         {
             services.AddDbContext<GoodsContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("GoodsDatabase")));
+
+            services.AddScoped<API.GoodsManagement.IRepository, API.GoodsManagement.SqlRepository>();
+
             services.AddMvc();
         }
 

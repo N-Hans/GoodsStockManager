@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatTableDataSource, MatSort } from '@angular/material';
-import { GoodsCRUDService } from '../../services/goods.crud.service';
+import { GoodsCRUDService } from '../../../services/goods.crud.service';
 
 @Component({
   selector: "goods-grid",

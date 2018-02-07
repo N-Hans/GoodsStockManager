@@ -1,0 +1,34 @@
+<div class="center-hold">
+  <mat-card>
+
+    <form #addEditForm="ngForm">
+      <div>
+        <div class="form-container">
+          <mat-form-field>
+            <input matInput placeholder="Code" [(ngModel)]="goodModel.code" name="code" required maxlength="25">
+          </mat-form-field>
+
+          <mat-form-field>
+            <textarea matInput placeholder="Description" [(ngModel)]="goodModel.description" name="description" required maxlength="300"></textarea>
+          </mat-form-field>
+
+          Item is:
+          <div class="center-hold justif-evenly">
+            <mat-checkbox [(ngModel)]="goodModel.isActive" name="isActive">Active</mat-checkbox>
+            <mat-checkbox [(ngModel)]="goodModel.isSalesItem" name="isSalesItem">Sales</mat-checkbox>
+            <mat-checkbox [(ngModel)]="goodModel.isStockItem" name="isStockItem">Stock</mat-checkbox>
+            <mat-checkbox [(ngModel)]="goodModel.isPurchasedItem" name="isPurchasedItem">Purchased</mat-checkbox>
+          </div>
+
+          <mat-form-field>
+            <textarea matInput placeholder="Barcode" [(ngModel)]="goodModel.barcode" name="barcode" required maxlength="100"></textarea>
+          </mat-form-field>
+
+
+
+        </div>
+      </div>
+    </form>
+
+  </mat-card>
+</div>

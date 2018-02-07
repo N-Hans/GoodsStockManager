@@ -1,0 +1,54 @@
+<div class="example-container mat-elevation-z8">
+
+  <mat-table [dataSource]="goodsCrudService.goods">
+
+    <ng-container matColumnDef="good-code">
+      <mat-header-cell *matHeaderCellDef> Code </mat-header-cell>
+      <mat-cell *matCellDef="let good"> {{good.code}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="good-is-active">
+      <mat-header-cell *matHeaderCellDef> Active </mat-header-cell>
+      <mat-cell *matCellDef="let good"> {{good.isActive}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="good-is-sales-item">
+      <mat-header-cell *matHeaderCellDef> Sales item </mat-header-cell>
+      <mat-cell *matCellDef="let good"> {{good.isSalesItem}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="good-is-stock-item">
+      <mat-header-cell *matHeaderCellDef> Stock item </mat-header-cell>
+      <mat-cell *matCellDef="let good"> {{good.isStockItem}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="good-is-purchased-item">
+      <mat-header-cell *matHeaderCellDef> Purchased item </mat-header-cell>
+      <mat-cell *matCellDef="let good"> {{good.isStockItem}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="manage-goods-item-by">
+      <mat-header-cell *matHeaderCellDef> Manage by </mat-header-cell>
+      <mat-cell *matCellDef="let good"> {{good.manageItemBy}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="good-minimum-inventory">
+      <mat-header-cell *matHeaderCellDef> Minimum inventory </mat-header-cell>
+      <mat-cell *matCellDef="let good"> {{good.minimumInventory}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="good-maximum-inventory">
+      <mat-header-cell *matHeaderCellDef> Maximum inventory </mat-header-cell>
+      <mat-cell *matCellDef="let good"> {{good.maximumInventory}} </mat-cell>
+    </ng-container>
+
+
+    <mat-header-row *matHeaderRowDef="['good-code', 'good-is-active', 'good-is-sales-item', 'good-is-stock-item', 'good-is-purchased-item', 'manage-goods-item-by', 'good-minimum-inventory', 'good-maximum-inventory']"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: ['good-code', 'good-is-active', 'good-is-sales-item', 'good-is-stock-item', 'good-is-purchased-item', 'manage-goods-item-by', 'good-minimum-inventory', 'good-maximum-inventory'];"></mat-row>
+  </mat-table>
+
+  <a mat-fab color="accent" [routerLink]="['../add-good']">
+    <mat-icon class="material-icons md-48">add</mat-icon>
+  </a>
+
+  </div>
